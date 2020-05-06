@@ -1,5 +1,6 @@
 package com.andriusk.project.service;
 
+import com.andriusk.project.serializing.CSVWriterTask;
 import com.andriusk.project.entity.Project;
 import com.andriusk.project.entity.Task;
 import com.andriusk.project.enums.Priority;
@@ -128,5 +129,10 @@ public class TaskServiceImp implements TaskService {
     public List<Task> findByTaskName(String searchTerm) {
         Pattern pattern = Pattern.compile("\\b(" + searchTerm + ".*)", Pattern.CASE_INSENSITIVE);
         return taskRepository.findAll().stream().filter(task -> pattern.matcher(task.getTaskName()).find()).collect(Collectors.toList());
+    }
+
+    @Override
+    public void exportAllTaskstoCSV() {
+	CSVWriterTask.openCSVWriterTasks(taskRepository.findAll());
     }
 }

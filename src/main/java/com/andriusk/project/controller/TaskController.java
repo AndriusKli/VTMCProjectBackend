@@ -68,4 +68,11 @@ public class TaskController {
 	public List<Task> findTask(@PathVariable String searchTerm) {
     	return taskService.findByTaskName(searchTerm);
 	}
+    
+    @GetMapping(value = "/exportToCSVTasks")
+	@ResponseStatus(HttpStatus.OK)
+	@ApiOperation(value = "Export to CSV", notes = "Exports all Tasks to CSV.")
+	public void exportToCSVTasks() {
+	taskService.exportAllTaskstoCSV();
+	}
 }

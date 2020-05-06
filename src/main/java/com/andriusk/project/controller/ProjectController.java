@@ -84,4 +84,11 @@ public class ProjectController {
     public List<Project> searchForProjects(@PathVariable String searchTerm) {
         return projectService.findByProjectName(searchTerm);
     }
+    
+    @GetMapping("/exportToCSVProjects")
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "Export to CSV", notes = "Exports all Projects to CSV file.")
+    public void exportToCSVProjects(){
+        projectService.exportAllProjectstoCSV();
+    }
 }
