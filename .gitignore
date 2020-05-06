@@ -3,3 +3,6 @@
 /src/test/
 /.idea/
 /target/
+.classpath
+.project
+*.prefs
