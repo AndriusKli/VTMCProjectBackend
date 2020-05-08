@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
-@Api(value = "/projects")
+@Api(value = "api/projects")
 @RestController
-@RequestMapping(value = "/projects")
+@RequestMapping(value = "api/projects")
 public class ProjectController {
 
     @Autowired
