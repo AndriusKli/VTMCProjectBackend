@@ -6,3 +6,5 @@
 .classpath
 .project
 *.prefs
+/frontend/node_modules/
+/frontend/build/
