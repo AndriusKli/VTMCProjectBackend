@@ -11,10 +11,13 @@ import com.andriusk.project.response.FullProjectInfo;
 import com.opencsv.CSVWriter;
 
 public class CSVWriterProject {
+    
+    private final static String FILEPATH = "target/serialize/Project.csv";
+   
 
     public static void openCSVWriter(List<FullProjectInfo> projects) {
 	
-	File file = new File("target/serialize/Project.csv");
+	File file = new File(FILEPATH);
 
 	if (!file.exists()) {
 	    file.getParentFile().mkdir();
@@ -60,6 +63,10 @@ public class CSVWriterProject {
 		    (project.getTotalTasks().intValue() - project.getCompleteTasks().intValue()) + "" });
 	}
 	return records;
+    }
+    
+    public static String getFilepath() {
+        return FILEPATH;
     }
 
 }

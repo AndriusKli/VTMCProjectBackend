@@ -37,10 +37,10 @@ public class FileController {
     @ApiOperation(value = "Download Project File", notes = "Downloads a Project File.")
     public ResponseEntity<Resource> downloadProjects() {
 	CSVWriterProject.openCSVWriter(projectService.retrieveFullInfo());
+	
         Resource resource;
-
-        String fileBasePath = "target/serialize/Project.csv";
-        Path path = Paths.get(fileBasePath);
+        
+        Path path = Paths.get(CSVWriterProject.getFilepath());
         try {
             resource = new UrlResource(path.toUri());
         } catch (MalformedURLException e) {
@@ -59,8 +59,7 @@ public class FileController {
 	CSVWriterTask.openCSVWriterTasks(taskRepository.findAll());
         Resource resource;
 
-        String fileBasePath = "target/serialize/Tasks.csv";
-        Path path = Paths.get(fileBasePath);
+        Path path = Paths.get(CSVWriterTask.getFilepath());
         try {
             resource = new UrlResource(path.toUri());
         } catch (MalformedURLException e) {

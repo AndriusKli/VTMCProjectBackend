@@ -12,10 +12,13 @@ import com.andriusk.project.entity.Task;
 import com.opencsv.CSVWriter;
 
 public class CSVWriterTask {
+    
+    private final static String FILEPATH = "target/serialize/Tasks.csv";
+   
 
     public static void openCSVWriterTasks(List<Task> tasks) {
-
-	File file = new File("target/serialize/Tasks.csv");
+	
+	File file = new File(FILEPATH);
 
 	if (!file.exists()) {
 	    file.getParentFile().mkdir();
@@ -66,4 +69,9 @@ public class CSVWriterTask {
 	}
 	return records;
     }
+    
+    public static String getFilepath() {
+        return FILEPATH;
+    }
+    
 }
