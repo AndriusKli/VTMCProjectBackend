@@ -12,10 +12,17 @@ import com.andriusk.project.entity.Task;
 import com.opencsv.CSVWriter;
 
 public class CSVWriterTask {
+    
+    private final static String FILEPATH = "target/serialize/Tasks.csv";
+   
 
     public static void openCSVWriterTasks(List<Task> tasks) {
+	
+	File file = new File(FILEPATH);
 
-	File file = new File("serialize/Tasks.csv");
+	if (!file.exists()) {
+	    file.getParentFile().mkdir();
+	}
 
 	List<String[]> data = toStringArrayTasks(tasks);
 
@@ -62,4 +69,9 @@ public class CSVWriterTask {
 	}
 	return records;
     }
+    
+    public static String getFilepath() {
+        return FILEPATH;
+    }
+    
 }

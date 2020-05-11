@@ -1,6 +1,15 @@
 package com.andriusk.project.service;
 
-import com.andriusk.project.serializing.CSVWriterTask;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.List;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.andriusk.project.entity.Project;
 import com.andriusk.project.entity.Task;
 import com.andriusk.project.enums.Priority;
@@ -8,15 +17,6 @@ import com.andriusk.project.enums.TaskStatus;
 import com.andriusk.project.repository.ProjectRepository;
 import com.andriusk.project.repository.TaskRepository;
 import com.andriusk.project.response.TaskCreateObject;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.List;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 @Service
 public class TaskServiceImp implements TaskService {
@@ -131,8 +131,4 @@ public class TaskServiceImp implements TaskService {
         return taskRepository.findAll().stream().filter(task -> pattern.matcher(task.getTaskName()).find()).collect(Collectors.toList());
     }
 
-    @Override
-    public void exportAllTaskstoCSV() {
-	CSVWriterTask.openCSVWriterTasks(taskRepository.findAll());
-    }
 }

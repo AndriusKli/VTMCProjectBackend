@@ -29,5 +29,4 @@ public interface ProjectService {
 
     FullProjectInfo retrieveFullInfoIndividual(Long projectId);
 
-    void exportAllProjectstoCSV();
 }

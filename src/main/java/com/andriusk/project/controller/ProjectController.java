@@ -54,6 +54,9 @@ public class ProjectController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     @ApiOperation(value = "Create a project", notes = "Creates a new project.")
     public void createProject(@RequestBody ProjectCreateObject project) {
+	if (project.getProjectDescription().contains(",")) {
+	    
+	}
         projectService.createProject(project);
     }
 
@@ -85,11 +88,4 @@ public class ProjectController {
         return projectService.findByProjectName(searchTerm);
     }
     
-    @GetMapping("/exportToCSVProjects")
-    @ResponseStatus(HttpStatus.OK)
-    @ApiOperation(value = "Export to CSV", notes = "Exports all Projects to CSV file.")
-    public void exportToCSVProjects(){
-        projectService.exportAllProjectstoCSV();
-    }
-
 }
