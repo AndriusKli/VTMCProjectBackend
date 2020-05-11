@@ -6,3 +6,6 @@
 .classpath
 .project
 *.prefs
+/src/main/resources/public/static/
+/frontend/
+/serialize/
