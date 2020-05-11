@@ -1,6 +1,6 @@
 Project Name,Project Description,Project Status,Task Count,Task Not Complete
 Test project 1,A test project,In progress,1,1
 Test project 2,Another test project,Complete,3,0
-A very important project,The most important project", the importantest of them all,In progress,1,1
+A very important project,The most important project. the importantest of them all,In progress,1,1
 A not so important project,You can probably ignore this project,In progress,1,1
 A project with complete tasks,Another test project,Complete,2,0
