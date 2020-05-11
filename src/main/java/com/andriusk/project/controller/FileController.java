@@ -1,5 +1,8 @@
 package com.andriusk.project.controller;
 
+import com.andriusk.project.repository.TaskRepository;
+import com.andriusk.project.serializing.CSVWriterProject;
+import com.andriusk.project.serializing.CSVWriterTask;
 import com.andriusk.project.service.ProjectService;
 import com.andriusk.project.service.TaskService;
 import io.swagger.annotations.Api;
@@ -28,15 +31,15 @@ public class FileController {
     private ProjectService projectService;
 
     @Autowired
-    private TaskService taskService;
+    private TaskRepository taskRepository;
 
     @GetMapping("/downloadProjectfile")
     @ApiOperation(value = "Download Project File", notes = "Downloads a Project File.")
     public ResponseEntity<Resource> downloadProjects() {
-        projectService.exportAllProjectstoCSV();
+	CSVWriterProject.openCSVWriter(projectService.retrieveFullInfo());
         Resource resource;
 
-        String fileBasePath = "serialize/Project.csv";
+        String fileBasePath = "target/serialize/Project.csv";
         Path path = Paths.get(fileBasePath);
         try {
             resource = new UrlResource(path.toUri());
@@ -53,10 +56,10 @@ public class FileController {
     @GetMapping("/downloadTaskfile")
     @ApiOperation(value = "Download Tasks File", notes = "Downloads a Tasks File.")
     public ResponseEntity<Resource> downloadTasks() {
-        taskService.exportAllTaskstoCSV();
+	CSVWriterTask.openCSVWriterTasks(taskRepository.findAll());
         Resource resource;
 
-        String fileBasePath = "serialize/Tasks.csv";
+        String fileBasePath = "target/serialize/Tasks.csv";
         Path path = Paths.get(fileBasePath);
         try {
             resource = new UrlResource(path.toUri());

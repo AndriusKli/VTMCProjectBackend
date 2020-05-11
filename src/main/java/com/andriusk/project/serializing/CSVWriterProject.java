@@ -14,7 +14,11 @@ public class CSVWriterProject {
 
     public static void openCSVWriter(List<FullProjectInfo> projects) {
 	
-	File file = new File("serialize/Project.csv");
+	File file = new File("target/serialize/Project.csv");
+
+	if (!file.exists()) {
+	    file.getParentFile().mkdir();
+	}
 
 	List<String[]> data = toStringArrayProject(projects);
 

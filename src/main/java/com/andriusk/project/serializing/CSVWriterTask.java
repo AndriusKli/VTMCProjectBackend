@@ -15,7 +15,11 @@ public class CSVWriterTask {
 
     public static void openCSVWriterTasks(List<Task> tasks) {
 
-	File file = new File("serialize/Tasks.csv");
+	File file = new File("target/serialize/Tasks.csv");
+
+	if (!file.exists()) {
+	    file.getParentFile().mkdir();
+	}
 
 	List<String[]> data = toStringArrayTasks(tasks);
 

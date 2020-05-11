@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.andriusk.project.serializing.CSVWriterProject;
 import com.andriusk.project.entity.Project;
 import com.andriusk.project.entity.Task;
 import com.andriusk.project.enums.ProjectStatus;
@@ -110,8 +109,4 @@ public class ProjectServiceImp implements ProjectService {
         return projectRepository.findByProjectName(projectName);
     }
 
-    @Override
-    public void exportAllProjectstoCSV() {	
-	CSVWriterProject.openCSVWriter(retrieveFullInfo());	
-    }
 }
