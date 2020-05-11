@@ -29,7 +29,7 @@ public class ProjectListApplication {
 		return (args) -> {
 			projectService.save(new Project("Test project 1", "A test project", ProjectStatus.NOT_STARTED));
 			projectService.save(new Project("Test project 2", "Another test project", ProjectStatus.COMPLETE));
-			projectService.save(new Project("A very important project", "The most important project, the importantest of them all", ProjectStatus.IN_PROGRESS));
+			projectService.save(new Project("A very important project", "The most important project. the importantest of them all", ProjectStatus.IN_PROGRESS));
 			projectService.save(new Project("A not so important project", "You can probably ignore this project", ProjectStatus.IN_PROGRESS));
 			projectService.save(new Project("A project with complete tasks", "Another test project", ProjectStatus.COMPLETE));
 		};

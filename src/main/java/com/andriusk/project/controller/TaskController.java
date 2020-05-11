@@ -6,9 +6,16 @@ import com.andriusk.project.service.TaskService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -75,4 +82,23 @@ public class TaskController {
 	public void exportToCSVTasks() {
 	taskService.exportAllTaskstoCSV();
 	}
+    
+    @GetMapping("/downloadTaskfile")
+    @ApiOperation(value = "Download Tasks File", notes = "Downloads a Tasks File.")
+    public ResponseEntity<Resource> downloadFile() {
+        Resource resource;
+
+        String fileBasePath = "serialize/Tasks.csv";
+        Path path = Paths.get(fileBasePath);
+        try {
+            resource = new UrlResource(path.toUri());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            return null;
+        }
+        
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+                .body(resource);
+    }
 }
