@@ -8,3 +8,6 @@
 *.prefs
 /src/main/resources/public/static/
 /frontend/
+/logs.log
+*.log
+*.gz

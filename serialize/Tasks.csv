@@ -1,9 +1,0 @@
-Task ID,Task Name,Task Description,Task Priority,Task Status,Task Created On,Task Modified On
-6,A dummy task,This is a dummy task intended for testing,MEDIUM,IN_PROGRESS,2020/05/11 02:35,2020/05/11 02:35
-7,Another dummy task,This is a dummy task intended for testing,HIGH,COMPLETE,2020/05/11 02:35,2020/05/11 02:35
-8,Another dummy task woooooo,This is a dummy task intended for testing,HIGH,COMPLETE,2020/05/11 02:35,2020/05/11 02:35
-9,Yet another dummy task,This is a dummy task intended for testing as well,HIGH,CANCELED,2020/05/11 02:35,2020/05/11 02:35
-10,Yet another dummy task,This is a dummy task intended for testing as well,HIGH,IN_PROGRESS,2020/05/11 02:35,2020/05/11 02:35
-11,A dummy task,This is a dummy task intended for testing,MEDIUM,IN_PROGRESS,2020/05/11 02:35,2020/05/11 02:35
-12,Yet another dummy task,This is a dummy task intended for testing as well,HIGH,COMPLETE,2020/05/11 02:35,2020/05/11 02:35
-13,Yet another dummy task,This is a dummy task intended for testing as well,HIGH,COMPLETE,2020/05/11 02:35,2020/05/11 02:35
