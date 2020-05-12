@@ -61,7 +61,7 @@ public class CSVWriterTask {
 	    records.add(new String[] {
 		    task.getTaskId().intValue() + "",
 		    task.getTaskName(),
-		    task.getTaskDescription(),
+		    task.getTaskDescription().replace("\n", " "),
 		    task.getTaskPriority().toString(),
 		    task.getTaskStatus().toString(),
 		    task.getTaskCreatedOn().format(DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm")),
