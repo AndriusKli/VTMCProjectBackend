@@ -11,9 +11,6 @@ import java.util.List;
 import com.andriusk.project.entity.Task;
 import com.opencsv.CSVWriter;
 
-
-
-
 public class CSVWriterTask {
     
     private final static String FILEPATH = "target/serialize/Tasks.csv";
