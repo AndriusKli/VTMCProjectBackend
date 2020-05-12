@@ -11,6 +11,9 @@ import java.util.List;
 import com.andriusk.project.entity.Task;
 import com.opencsv.CSVWriter;
 
+
+
+
 public class CSVWriterTask {
     
     private final static String FILEPATH = "target/serialize/Tasks.csv";
@@ -29,7 +32,7 @@ public class CSVWriterTask {
 	try {
 	    FileWriter outputfile = new FileWriter(file);
 
-	    CSVWriter writer = new CSVWriter(outputfile, ',', CSVWriter.NO_QUOTE_CHARACTER,
+	    CSVWriter writer = new CSVWriter(outputfile, '|', CSVWriter.NO_QUOTE_CHARACTER,
 		    CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
 
 	    writer.writeAll(data);
