@@ -28,7 +28,7 @@ public class CSVWriterProject {
 	try {
 	    FileWriter outputfile = new FileWriter(file);
 
-	    CSVWriter writer = new CSVWriter(outputfile, ',', CSVWriter.NO_QUOTE_CHARACTER,
+	    CSVWriter writer = new CSVWriter(outputfile, '|', CSVWriter.NO_QUOTE_CHARACTER,
 		    CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
 
 	    writer.writeAll(data);
