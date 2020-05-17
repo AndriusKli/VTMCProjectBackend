@@ -12,17 +12,24 @@ import com.andriusk.project.entity.Task;
 import com.opencsv.CSVWriter;
 
 public class CSVWriterTask {
+    
+    private final static String FILEPATH = "target/serialize/Tasks.csv";
+   
 
     public static void openCSVWriterTasks(List<Task> tasks) {
+	
+	File file = new File(FILEPATH);
 
-	File file = new File("serialize/Tasks.csv");
+	if (!file.exists()) {
+	    file.getParentFile().mkdir();
+	}
 
 	List<String[]> data = toStringArrayTasks(tasks);
 
 	try {
 	    FileWriter outputfile = new FileWriter(file);
 
-	    CSVWriter writer = new CSVWriter(outputfile, ',', CSVWriter.NO_QUOTE_CHARACTER,
+	    CSVWriter writer = new CSVWriter(outputfile, '|', CSVWriter.NO_QUOTE_CHARACTER,
 		    CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
 
 	    writer.writeAll(data);
@@ -54,7 +61,7 @@ public class CSVWriterTask {
 	    records.add(new String[] {
 		    task.getTaskId().intValue() + "",
 		    task.getTaskName(),
-		    task.getTaskDescription(),
+		    task.getTaskDescription().replace("\n", " "),
 		    task.getTaskPriority().toString(),
 		    task.getTaskStatus().toString(),
 		    task.getTaskCreatedOn().format(DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm")),
@@ -62,4 +69,9 @@ public class CSVWriterTask {
 	}
 	return records;
     }
+    
+    public static String getFilepath() {
+        return FILEPATH;
+    }
+    
 }

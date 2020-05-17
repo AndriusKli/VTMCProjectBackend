@@ -6,7 +6,11 @@
 .classpath
 .project
 *.prefs
-/frontend/node_modules/
-/frontend/build/
+/src/main/resources/public/static/
+/frontend/
+/logs.log
 *.log
 *.gz
+springdb.mv.db
+/frontend/node_modules/
+/frontend/build/

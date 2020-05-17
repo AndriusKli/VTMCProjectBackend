@@ -11,17 +11,24 @@ import com.andriusk.project.response.FullProjectInfo;
 import com.opencsv.CSVWriter;
 
 public class CSVWriterProject {
+    
+    private final static String FILEPATH = "target/serialize/Project.csv";
+   
 
     public static void openCSVWriter(List<FullProjectInfo> projects) {
 	
-	File file = new File("serialize/Project.csv");
+	File file = new File(FILEPATH);
+
+	if (!file.exists()) {
+	    file.getParentFile().mkdir();
+	}
 
 	List<String[]> data = toStringArrayProject(projects);
 
 	try {
 	    FileWriter outputfile = new FileWriter(file);
 
-	    CSVWriter writer = new CSVWriter(outputfile, ',', CSVWriter.NO_QUOTE_CHARACTER,
+	    CSVWriter writer = new CSVWriter(outputfile, '|', CSVWriter.NO_QUOTE_CHARACTER,
 		    CSVWriter.DEFAULT_ESCAPE_CHARACTER, CSVWriter.DEFAULT_LINE_END);
 
 	    writer.writeAll(data);
@@ -56,6 +63,10 @@ public class CSVWriterProject {
 		    (project.getTotalTasks().intValue() - project.getCompleteTasks().intValue()) + "" });
 	}
 	return records;
+    }
+    
+    public static String getFilepath() {
+        return FILEPATH;
     }
 
 }

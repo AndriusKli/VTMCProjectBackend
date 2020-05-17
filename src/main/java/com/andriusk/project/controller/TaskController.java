@@ -26,13 +26,6 @@ public class TaskController {
     public List<Task> getTasks(@PathVariable Long projectId) {
         return taskService.getAllTasks(projectId);
     }
-//
-//    @GetMapping(value = "/status")
-//    @ResponseStatus(HttpStatus.OK)
-//    @ApiOperation(value = "Retrieve task completeness", notes = "Returns an object which contains information about the amount of tasks completed in a particular project.")
-//    public TaskProgress getProgress(@PathVariable Long projectId) {
-//        return taskService.retrieveProgress(projectId);
-//    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
@@ -68,11 +61,5 @@ public class TaskController {
 	public List<Task> findTask(@PathVariable String searchTerm) {
     	return taskService.findByTaskName(searchTerm);
 	}
-    
-    @GetMapping(value = "/exportToCSVTasks")
-	@ResponseStatus(HttpStatus.OK)
-	@ApiOperation(value = "Export to CSV", notes = "Exports all Tasks to CSV.")
-	public void exportToCSVTasks() {
-	taskService.exportAllTaskstoCSV();
-	}
+
 }

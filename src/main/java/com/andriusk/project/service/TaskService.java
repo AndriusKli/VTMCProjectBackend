@@ -20,7 +20,6 @@ public interface TaskService {
 
     void createTask(Long projectId, TaskCreateObject task);
 
-    void exportAllTaskstoCSV();
 
 //    TaskProgress retrieveProgress(Long projectId);
 }

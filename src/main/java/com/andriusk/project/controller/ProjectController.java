@@ -28,7 +28,7 @@ public class ProjectController {
         return projectService.findAll();
     }
 
-    // This is used for retrieving a newly created project, so disregard the deceptively named path.
+    // I messed up the mapping here a bit. This is used for retrieving a single, newly created project.
     @GetMapping(value = "/retrieve/{projectName}")
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Get a project by name", notes = "Returns project by the specified name.")
@@ -84,11 +84,5 @@ public class ProjectController {
     public List<Project> searchForProjects(@PathVariable String searchTerm) {
         return projectService.findByProjectName(searchTerm);
     }
-    
-    @GetMapping("/exportToCSVProjects")
-    @ResponseStatus(HttpStatus.OK)
-    @ApiOperation(value = "Export to CSV", notes = "Exports all Projects to CSV file.")
-    public void exportToCSVProjects(){
-        projectService.exportAllProjectstoCSV();
-    }
+
 }
