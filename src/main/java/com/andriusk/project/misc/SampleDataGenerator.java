@@ -58,7 +58,7 @@ public class SampleDataGenerator {
     }
 
     public void generateDbEntries() {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 150; i++) {
             Project newProject = new Project(
                     "A sample project",
                     "A sample description",
