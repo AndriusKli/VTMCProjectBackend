@@ -1,4 +1,4 @@
-package com.andriusk.project.serializing;
+package com.andriusk.project.serialization;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.andriusk.project.response.FullProjectInfo;
+import com.andriusk.project.misc.FullProjectInfo;
 import com.opencsv.CSVWriter;
 
 public class CSVWriterProject {

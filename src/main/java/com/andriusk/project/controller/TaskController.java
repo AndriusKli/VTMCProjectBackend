@@ -1,7 +1,7 @@
 package com.andriusk.project.controller;
 
 import com.andriusk.project.entity.Task;
-import com.andriusk.project.response.TaskCreateObject;
+import com.andriusk.project.misc.TaskCreateObject;
 import com.andriusk.project.service.TaskService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

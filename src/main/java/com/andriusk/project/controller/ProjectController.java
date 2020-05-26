@@ -1,8 +1,8 @@
 package com.andriusk.project.controller;
 
 import com.andriusk.project.entity.Project;
-import com.andriusk.project.response.FullProjectInfo;
-import com.andriusk.project.response.ProjectCreateObject;
+import com.andriusk.project.misc.FullProjectInfo;
+import com.andriusk.project.misc.ProjectCreateObject;
 import com.andriusk.project.service.ProjectService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

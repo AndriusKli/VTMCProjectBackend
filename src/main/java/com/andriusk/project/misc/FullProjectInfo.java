@@ -1,4 +1,4 @@
-package com.andriusk.project.response;
+package com.andriusk.project.misc;
 
 import com.andriusk.project.entity.Project;
 import com.andriusk.project.entity.Task;

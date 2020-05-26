@@ -1,7 +1,7 @@
 package com.andriusk.project.service;
 
 import com.andriusk.project.entity.Task;
-import com.andriusk.project.response.TaskCreateObject;
+import com.andriusk.project.misc.TaskCreateObject;
 
 import java.util.List;
 

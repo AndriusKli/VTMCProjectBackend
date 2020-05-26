@@ -1,4 +1,4 @@
-package com.andriusk.project.response;
+package com.andriusk.project.misc;
 
 import lombok.Data;
 

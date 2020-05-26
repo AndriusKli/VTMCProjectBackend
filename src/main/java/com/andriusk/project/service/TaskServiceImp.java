@@ -16,7 +16,7 @@ import com.andriusk.project.enums.Priority;
 import com.andriusk.project.enums.TaskStatus;
 import com.andriusk.project.repository.ProjectRepository;
 import com.andriusk.project.repository.TaskRepository;
-import com.andriusk.project.response.TaskCreateObject;
+import com.andriusk.project.misc.TaskCreateObject;
 
 @Service
 public class TaskServiceImp implements TaskService {

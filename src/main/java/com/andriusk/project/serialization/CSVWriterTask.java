@@ -1,4 +1,4 @@
-package com.andriusk.project.serializing;
+package com.andriusk.project.serialization;
 
 import java.io.File;
 import java.io.FileWriter;

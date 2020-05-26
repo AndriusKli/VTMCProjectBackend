@@ -5,8 +5,8 @@ import com.andriusk.project.entity.Task;
 import com.andriusk.project.enums.ProjectStatus;
 import com.andriusk.project.enums.TaskStatus;
 import com.andriusk.project.repository.ProjectRepository;
-import com.andriusk.project.response.FullProjectInfo;
-import com.andriusk.project.response.ProjectCreateObject;
+import com.andriusk.project.misc.FullProjectInfo;
+import com.andriusk.project.misc.ProjectCreateObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
