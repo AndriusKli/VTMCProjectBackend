@@ -35,11 +35,23 @@ function FrontPage() {
 
     const handleSearchChange = (event) => {
         event.preventDefault();
+        setState({
+            ...state,
+            currentPage: 1,
+            offset: 0
+        })
         dispatch(filterBySearch(event.target.value.trim()));
     }
 
     const handleFilterChange = (event, filter) => {
         event.preventDefault();
+        if (filter !== '') {
+            setState({
+                ...state,
+                currentPage: 1,
+                offset: 0
+            })
+        }
         dispatch(filterStatusBy(filter));
     }
 
@@ -49,8 +61,7 @@ function FrontPage() {
             ...state,
             currentPage: value,
             offset: (value - 1) * state.projectsPerPage
-        });
-        console.log(state);
+        })
     }
 
     return (
@@ -115,15 +126,15 @@ function FrontPage() {
                     )}
 
                 </table>
-                
+
                 <div className="d-flex justify-content-center">
-                <Pagination count={totalPaginationPages} siblingCount={1} onChange={handlePageChange} size="large" />
-            </div>
-            
+                    <Pagination count={totalPaginationPages} siblingCount={1} onChange={handlePageChange} page={state.currentPage} size="large" />
+                </div>
+
                 <br />
             </div>
 
-            
+
         </div>
     )
 }

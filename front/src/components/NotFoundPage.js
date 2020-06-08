@@ -10,7 +10,7 @@ function NotFoundPage() {
                         <div className="col-md-12 text-center">
                             <span className="display-1 d-block">404</span>
                             <div className="mb-4 lead">The page you are looking for was not found</div>
-                            <Link to="/"> <span className="btn btn-link" style={{"text-decoration": "none"}}>Back to Home</span> </Link>
+                            <Link to="/"> <span className="btn btn-link" style={{"textDecoration": "none"}}>Back to Home</span> </Link>
                         </div>
                     </div>
                 </div>

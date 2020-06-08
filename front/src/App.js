@@ -6,11 +6,9 @@ import Homepage from './components/Homepage';
 import { addProjects } from './actions/projects';
 import Axios from 'axios';
 import PageTemplate from './components/PageTemplate';
-import CreateProjectForm from './components/CreateProjectForm';
 import ProjectInfoPage from './components/ProjectInfoPage';
-import CreateTaskForm from './components/CreateTaskForm';
-import EditProjectForm from './components/EditProjectForm';
-import EditTaskForm from './components/EditTaskForm';
+import ProjectEditAndCreateForm from './components/ProjectEditAndCreateForm';
+import TaskEditAndCreateForm from './components/TaskEditAndCreateForm';
 import NotFoundPage from './components/NotFoundPage';
 import MaintenancePage from './components/MaintenancePage';
 import TaskboardPage from './components/TaskboardPage';
@@ -50,20 +48,22 @@ export default class App extends React.Component {
             </Route>
 
             <Route path="/projects/new" exact={true}>
-              <PageTemplate content={<CreateProjectForm />} />
+              <PageTemplate content={<ProjectEditAndCreateForm />} />
             </Route>
 
-            <Route path="/projects/:id/tasks/board" exact={true}>
+            <Route path="/projects/:id([0-9]+)/tasks/board" exact={true}>
               <TaskboardPage />
             </Route>
 
-            <Route path="/projects/:id" exact={true} component={ProjectInfoPage} />
+            <Route path="/projects/:id([0-9]+)" exact={true} >
+              <ProjectInfoPage />
+            </Route>
 
-            <Route path="/projects/:id/edit" exact={true} render={(props => <PageTemplate {...props} content={<EditProjectForm />} />)} />
+            <Route path="/projects/:id([0-9]+)/edit" exact={true} render={(props => <PageTemplate {...props} content={<ProjectEditAndCreateForm />} />)} />
 
-            <Route path="/projects/:id/tasks/create" exact={true} render={(props => <PageTemplate {...props} content={<CreateTaskForm />} />)} />
+            <Route path="/projects/:id([0-9]+)/tasks/create" exact={true} render={(props => <PageTemplate {...props} content={<TaskEditAndCreateForm />} />)} />
 
-            <Route path="/projects/:id/tasks/:taskid/edit" exact={true} render={(props => <PageTemplate {...props} content={<EditTaskForm />} />)} />
+            <Route path="/projects/:id([0-9]+)/tasks/:taskid([0-9]+)/edit" exact={true} render={(props => <PageTemplate {...props} content={<TaskEditAndCreateForm />} />)} />
 
 
             <Route>
