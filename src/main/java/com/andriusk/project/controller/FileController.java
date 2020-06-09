@@ -7,19 +7,16 @@ import com.andriusk.project.service.ProjectService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.net.MalformedURLException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.IOException;
 
-//@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 @Api(value = "api/files")
 @RestController
 @RequestMapping(value = "api/files")
@@ -33,40 +30,17 @@ public class FileController {
 
     @GetMapping("/downloadProjectfile")
     @ApiOperation(value = "Download Project File", notes = "Downloads a Project File.")
-    public ResponseEntity<Resource> downloadProjects() {
-	CSVWriterProject.openCSVWriter(projectService.retrieveFullInfo());
-	
-        Resource resource;
-        
-        Path path = Paths.get(CSVWriterProject.getFilepath());
-        try {
-            resource = new UrlResource(path.toUri());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            return null;
-        }
-
+    public ResponseEntity<String> downloadProjects() throws IOException {
         return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
-                .body(resource);
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + "Projects" + "\"")
+                .body(CSVWriterProject.openCSVWriter(projectService.retrieveFullInfo()));
     }
 
     @GetMapping("/downloadTaskfile")
     @ApiOperation(value = "Download Tasks File", notes = "Downloads a Tasks File.")
-    public ResponseEntity<Resource> downloadTasks() {
-	CSVWriterTask.openCSVWriterTasks(taskRepository.findAll());
-        Resource resource;
-
-        Path path = Paths.get(CSVWriterTask.getFilepath());
-        try {
-            resource = new UrlResource(path.toUri());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            return null;
-        }
-
+    public ResponseEntity<String> downloadTasks() throws IOException {
         return ResponseEntity.ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
-                .body(resource);
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + "Tasks" + "\"")
+                .body(CSVWriterTask.openCSVWriterTasks(taskRepository.findAll()));
     }
 }

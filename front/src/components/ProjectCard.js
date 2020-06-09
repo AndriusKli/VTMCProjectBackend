@@ -11,7 +11,7 @@ export default class ProjectCard extends Component {
     handleRemove = () => {
         if (window.confirm("Are you sure you want to delete this project?")) {
             this.props.dispatch(removeProjectById(this.props.projectId));
-            Axios.delete(`http://localhost:8080/api/projects/${this.props.projectId}`)
+            Axios.delete(`/api/projects/${this.props.projectId}`)
         }
     }
 

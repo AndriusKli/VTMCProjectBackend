@@ -52,9 +52,9 @@ function TaskEditAndCreateForm() {
 
             task ?
 
-                Axios.post(`http://localhost:8080/api/projects/${params.id}/tasks/${params.taskid}`, payload).then(response => {
+                Axios.post(`/api/projects/${params.id}/tasks/${params.taskid}`, payload).then(response => {
                     if (response.status === 202) {
-                        Axios.get(`http://localhost:8080/api/projects/full/${params.id}`).then(response => {
+                        Axios.get(`/api/projects/full/${params.id}`).then(response => {
                             if (response.status === 200) {
                                 dispatch(updateProject(parseInt(params.id), response.data));
                                 history.goBack();
@@ -71,9 +71,9 @@ function TaskEditAndCreateForm() {
 
                 :
 
-                Axios.post(`http://localhost:8080/api/projects/${params.id}/tasks`, payload).then(response => {
+                Axios.post(`/api/projects/${params.id}/tasks`, payload).then(response => {
                     if (response.status === 202) {
-                        Axios.get(`http://localhost:8080/api/projects/full/${params.id}`).then(response => {
+                        Axios.get(`/api/projects/full/${params.id}`).then(response => {
                             if (response.status === 200) {
                                 dispatch(updateProject(parseInt(params.id), response.data));
                                 history.push(`/projects/${params.id}`);

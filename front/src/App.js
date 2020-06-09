@@ -20,7 +20,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    Axios.get(`http://localhost:8080/api/projects/full`).then(res => {
+    Axios.get(`/api/projects/full`).then(res => {
       const data = res.data;
       this.props.dispatch(addProjects(data));
       this.setState({ doneRetrieving: true })

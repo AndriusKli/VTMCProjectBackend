@@ -16,7 +16,7 @@ function MaintenancePage() {
 
   const handleProjectRetrieval = (event) => {
     event.preventDefault();
-    Axios.get('http://localhost:8080/api/files/downloadProjectfile').then(response => {
+    Axios.get('/api/files/downloadProjectfile').then(response => {
       if (response.status === 200) {
         let file = new File([response.data], "projects.csv", { type: "text/csv;charset=utf-8" });
         FileSaver.saveAs(file);
@@ -28,7 +28,7 @@ function MaintenancePage() {
 
   const handleTaskRetrieval = (event) => {
     event.preventDefault();
-    Axios.get('http://localhost:8080/api/files/downloadTaskfile').then(response => {
+    Axios.get('/api/files/downloadTaskfile').then(response => {
       if (response.status === 200) {
         let file = new File([response.data], "tasks.csv", { type: "text/csv;charset=utf-8" });
         FileSaver.saveAs(file);

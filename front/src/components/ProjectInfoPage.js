@@ -32,7 +32,7 @@ function ProjectInfoPage() {
     const handleProjectDelete = (event) => {
         event.preventDefault();
         if (window.confirm("Are you sure you want to delete this project?")) {
-            Axios.delete(`http://localhost:8080/api/projects/${params.id}`);
+            Axios.delete(`/api/projects/${params.id}`);
             dispatch(removeProjectById(parseInt(params.id)));
             history.push(`/projects`);
         }

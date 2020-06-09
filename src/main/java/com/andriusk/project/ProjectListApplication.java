@@ -52,7 +52,7 @@ public class ProjectListApplication {
     }
 
 //	 Only for testing purposes.
-
+//   DO NOT uncomment unless you want +200 projects and thousands of tasks.
 //	@Bean
 //	public CommandLineRunner projectTestData(SampleDataGenerator sampleDataGenerator) {
 //		return (args) -> {

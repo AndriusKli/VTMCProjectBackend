@@ -46,12 +46,14 @@ function ProjectEditAndCreateForm() {
             // Depending if the project is being edited or not (project will be undefined if it's being created),
             // it will either create a new entry or update an existing one.
             project ?
-                Axios.patch(`http://localhost:8080/api/projects/${params.id}`, payload).then(response => {
+                Axios.patch(`/api/projects/${params.id}`, payload).then(response => {
                     if (response.status === 200) {
-                        Axios.get(`http://localhost:8080/api/projects/full/${params.id}`).then(res => {
+                        Axios.get(`/api/projects/full/${params.id}`).then(res => {
                             const data = res.data;
                             dispatch(updateProject(parseInt(params.id), data));
-                            history.goBack();
+                            if (res.status === 200) {
+                                history.goBack();
+                            }
                         });
                     } else {
                         event.target.disabled = false;
@@ -60,9 +62,9 @@ function ProjectEditAndCreateForm() {
 
                 :
 
-                Axios.post(`http://localhost:8080/api/projects/`, payload).then(function (response) {
+                Axios.post(`/api/projects/`, payload).then(function (response) {
                     if (response.status === 202) {
-                        Axios.get(`http://localhost:8080/api/projects/retrieve/${state.projectName}`).then(res => {
+                        Axios.get(`/api/projects/retrieve/${state.projectName}`).then(res => {
                             const data = res.data;
                             dispatch(addProjects([{
                                 ...data,
